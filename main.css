@@ -1,0 +1,53 @@
+.logo{
+  margin: 3em 0;
+  width: 25em;
+  max-width: 70%;
+}
+html {
+  min-height: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,470000+49,ed6238+100 */
+  background: rgb(0,0,0); /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgba(0,0,0,1) 0%, rgba(71,0,0,1) 49%, rgba(237,98,56,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(0,0,0,1) 0%,rgba(71,0,0,1) 49%,rgba(237,98,56,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(0,0,0,1) 0%,rgba(71,0,0,1) 49%,rgba(237,98,56,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ed6238',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  color: white;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5em 0 0;
+}
+
+body {
+  height: 100%;
+}
+.content-container {
+  text-align: center;
+}
+
+.splash-section {
+  width: 40%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  text-align: left;
+  font-size: 0.8em;
+  margin: 1em;
+  box-sizing: border-box;
+  padding: 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.splash-section h2 {
+  font-family: 'Bitter', serif;
+}
+
+a {
+  color: inherit;
+  font-style: italic;
+}
+
+@media screen and (max-width: 800px) {
+  .splash-section {
+    width: 80%;
+  }
+}
