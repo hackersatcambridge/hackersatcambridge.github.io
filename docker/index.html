@@ -1,19 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-<h1> Free Docker Available HERE!!!!!! </h1>
-<ul>
-  <li>Freeee docker in Linux: <a href="https://mlhlocal.host/docker-linux">https://mlhlocal.host/docker-linux</a></li>
-  <li>Freeee docker in Windows: <a href="https://mlhlocal.host/docker-linux">https://mlhlocal.host/docker-windows</a></li>
-  <li>Freeee docker in Macintosh: <a href="https://mlhlocal.host/docker-linux">https://mlhlocal.host/docker-mac</a></li>
-</ul>
-
-QUIZ? QUIZ!!!
-<ul>
-<li> Docker quiz!!!!!!! :D :D :D : <a href="https://mlhlocal.host/docker-lms">https://mlhlocal.host/docker-lms</a></li>
-</ul>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HaC Docker</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+  </head>
+  <body>
+    <h1>Hackers at Cambridge Docker</h1>
+    <section>
+      <h2>Links</h2>
+      <h3>Docker Hub</h3>
+      <p>
+        <a href="https://hub.docker.com/" target="_blank">Sign up for Docker Hub</a>
+      </p>
+      <h3>Docker Installation Packages</h3>
+      <ul>
+        <li><a href="https://docs.docker.com/docker-for-mac/" target="_blank">Mac</a></li>
+        <li><a href="https://docs.docker.com/docker-for-windows/" target="_blank">Windows</a></li>
+        <li><a href="https://docs.docker.com/engine/installation/linux/" target="_blank">Linux</a></li>
+      </ul>
+      <h3>View Your Website</h3>
+      <p>
+        <a href="http://localhost:8888" target="_blank">http://localhost:8888</a>
+      </p>
+      <h3>GitHub Projects for Code From the Website</h3>
+      <ul>
+        <li><a href="http://mlhlocal.host/docker-static-site" target="_blank">Static Site</a></li>
+        <li><a href="http://mlhlocal.host/docker-flask" target="_blank">Python GIF Website</a></li>
+      </ul>
+      <h3>Sponsored</h3>
+      <ul>
+        <li><a href="https://www.awseducate.com/Application?apptype=student&promoCode=MLH_2017" target="_blank">Free AWS Credit</a></li>
+        <li><a href="https://community.docker.com/registrations/groups/5260" target="_blank">Docker Student Community</a></li>
+        <li><a href="https://github.com/docker/community/blob/master/Campus%20Ambassadors/guidelines.md" target="_blank">Become a Docker Campus Ambassador</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Code for Python Website</h2>
+      <h3><code>app.py</code></h3>
+      <pre><code>from flask import Flask, render_template
+import random
+app = Flask(__name__)
+images = [
+  &quot;http://mlhlocal.host/docker-cat-1&quot;,
+  &quot;http://mlhlocal.host/docker-cat-2&quot;,
+  &quot;http://mlhlocal.host/docker-cat-3&quot;
+]
+@app.route('/')
+def index():
+  url = random.choice(images)
+  return render_template(&quot;index.html&quot;, url=url)
+if __name__ == &quot;__main__&quot;:
+  app.run(host=&quot;0.0.0.0&quot;)</code></pre>
+      <h3><code>index.html</code></h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        .container {
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h4&gt;
+            Cat Gif of the Day
+        &lt;/h4&gt;
+        &lt;img src={{url}} /&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <h3><code>Dockerfile</code></h3>
+      <pre><code>FROM alpine:3.5
+RUN apk add --update py2-pip
+COPY requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
+COPY app.py /usr/src/app/
+COPY templates/index.html /usr/src/app/templates/
+EXPOSE 5000
+CMD ["python", "/usr/src/app/app.py"]</code></pre>
+    </section>
+  </body>
 </html>
